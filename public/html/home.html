@@ -1,0 +1,25 @@
+
+<div class="container">
+  <div class="row">
+    <ul class=" col-sm-6">
+ <form name="testForm">
+  <div class="form-group">
+    <label for="exampleInputEmail1">First Number :</label>
+    <input type="number" class="form-control" ng-model="numbObj.numb1" name="numb1" placeholder="1"  ng-minlength="0" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Second Number :</label>
+    <input type="number" class="form-control" ng-model="numbObj.numb2"  name="numb2" placeholder="1" ng-minlength="0" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Result :</label>
+    <input type="number" ng-model="numbObj.res" class="form-control" name="res" placeholder="0" disabled>
+  </div>
+ 
+  <button type="submit" ng-disabled="testForm.$invalid || testForm.numb1.$invalid || testForm.numb2.$invalid " class="btn btn-default" ng-click="calculate()">Calculate</button>
+</form>
+
+</ul>
+  </div>
+{{validInputs}}
+</div>
