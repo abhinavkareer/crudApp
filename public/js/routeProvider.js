@@ -1,10 +1,12 @@
 var app = angular.module("testApp", ["ngRoute"]);
-app.config(function($routeProvider) {
+app.config(function($routeProvider,$locationProvider) {
     $routeProvider
     .when("/", {
         templateUrl : "html/home.html",
         controller:"testCtrl"
     })
+
+     $locationProvider.html5Mode(true);
 });
 
 
