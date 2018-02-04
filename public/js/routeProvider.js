@@ -13,6 +13,7 @@ app.config(function($routeProvider,$locationProvider) {
 app.controller('testCtrl', function($scope,calculate,$http) {
    
 $scope.numbObj={};
+$scope.allNumbs=[];
 	
 	
 	$scope.getData=function()
@@ -23,7 +24,8 @@ $scope.numbObj={};
         
     }).then(function mySucces(response) {
      $scope.numbObj= response.data[0] || {};
-     console.log($scope.numbObj);
+     $scope.allNumbs=response.data.splice(1);
+     console.log($scope.allNumbs);
     }, function myError(error) {
           console.log(error);
     });
@@ -47,7 +49,9 @@ $scope.saveData();
    $scope.saveData=function()
    {
 
-  
+    delete $scope.numbObj._id;
+    delete $scope.numbObj.lastUpdated;
+    $scope.numbObj.isLatest=true;
 
    	 $http({
         method : "POST",
@@ -55,17 +59,18 @@ $scope.saveData();
         data:{"numbs":JSON.stringify($scope.numbObj)}
     }).then(function mySucces(response) {
       console.log(response);
+      
+$scope.getData();
     }, function myError(error) {
           console.log(error);
     });
    }
 
 
+   $scope.getData();
 
 
 
-
-$scope.getData();
 
 });
 

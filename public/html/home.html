@@ -23,3 +23,19 @@
   </div>
 {{validInputs}}
 </div>
+
+<div class="historyGrids">
+    <table class="table table-striped">
+        <tr><th>Number 1</th>
+        <th>Number 2</th>
+        <th>Result</th>
+        <th>Last Updated</th></tr>
+        <tr ng-repeat="row in allNumbs">
+          <td>{{row.numb1}}</td>
+          <td>{{row.numb2}}</td>
+          <td>{{row.res}}</td>
+          <td>{{row.lastUpdated}}</td>
+        </tr>
+      </table>
+
+</div>
